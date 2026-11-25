@@ -1,0 +1,1631 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10172e">
+<title>English Exam Preparation | Grade XI</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg:#0b1020;
+  --panel:#141d35;
+  --panel2:#1b2744;
+  --blue:#579bff;
+  --cyan:#46dfdf;
+  --purple:#a78bfa;
+  --text:#edf3ff;
+  --muted:#a5b2cb;
+  --border:rgba(255,255,255,.09);
+}
+
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+}
+button,input{font-family:inherit}
+a{color:inherit;text-decoration:none}
+
+header{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  background:rgba(11,16,32,.95);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(15px);
+}
+.logo{
+  font-size:18px;
+  font-weight:800;
+  color:white;
+}
+.logo span{color:var(--cyan)}
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-size:12px;
+  color:var(--muted);
+}
+.menu-btn{
+  display:none;
+  border:0;
+  background:var(--panel2);
+  color:white;
+  padding:9px 13px;
+  border-radius:8px;
+}
+
+.layout{display:flex;min-height:calc(100vh - 70px)}
+.sidebar{
+  width:265px;
+  padding:25px 16px;
+  border-right:1px solid var(--border);
+  background:#10172b;
+  position:sticky;
+  top:70px;
+  height:calc(100vh - 70px);
+  overflow-y:auto;
+  flex-shrink:0;
+}
+.sidebar h4{
+  color:#7185aa;
+  font-size:10px;
+  letter-spacing:2px;
+  padding-left:12px;
+  margin:20px 0 10px;
+}
+.nav-btn{
+  display:block;
+  width:100%;
+  padding:11px 12px;
+  border:0;
+  background:transparent;
+  color:#aab8d0;
+  text-align:left;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:12px;
+  margin:3px 0;
+  transition:.2s;
+}
+.nav-btn:hover,.nav-btn.active{
+  color:white;
+  background:linear-gradient(90deg,#2856a3,#342b70);
+}
+.nav-btn span{margin-right:9px}
+
+.progress-box{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:12px;
+  margin-top:25px;
+  font-size:11px;
+}
+.progress-track{
+  background:#293550;
+  height:7px;
+  border-radius:10px;
+  margin-top:10px;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  transition:.3s;
+}
+
+main{
+  flex:1;
+  min-width:0;
+  padding:35px 5%;
+  max-width:1250px;
+  margin:0 auto;
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:23px;
+  padding:45px;
+  background:linear-gradient(120deg,#193b73,#342b70 65%,#183d53);
+}
+.hero:after{
+  content:"A B C";
+  position:absolute;
+  right:10px;
+  bottom:-50px;
+  font-size:125px;
+  font-weight:800;
+  color:rgba(255,255,255,.05);
+}
+.eyebrow{
+  color:var(--cyan);
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+}
+.hero h1{
+  font-size:clamp(27px,5vw,47px);
+  line-height:1.2;
+  margin:16px 0;
+}
+.hero p{
+  color:#d4e1fa;
+  max-width:650px;
+  font-size:13px;
+  line-height:1.9;
+}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.btn{
+  border:0;
+  border-radius:9px;
+  padding:12px 18px;
+  background:var(--blue);
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+  font-size:12px;
+}
+.btn.secondary{background:rgba(255,255,255,.13)}
+.btn:hover{filter:brightness(1.15)}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:22px 0 35px;
+}
+.stat{
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:var(--panel);
+}
+.stat strong{
+  font-size:24px;
+  display:block;
+  color:var(--cyan);
+}
+.stat small{color:var(--muted);font-size:11px}
+
+.section{display:none;animation:fade .3s}
+.section.active{display:block}
+@keyframes fade{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.section-title{
+  margin-bottom:25px;
+}
+.section-title small{
+  color:var(--cyan);
+  font-weight:700;
+  letter-spacing:2px;
+  font-size:10px;
+}
+.section-title h2{font-size:27px;margin:7px 0}
+.section-title p{font-size:12px;color:var(--muted);line-height:1.8}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+  margin:15px 0;
+}
+.card h3{font-size:16px;margin-top:0;color:#b8d7ff}
+.card p,.card li{
+  color:#c5d0e5;
+  font-size:12px;
+  line-height:2;
+}
+.card ul{padding-left:20px}
+.card strong{color:white}
+.highlight{
+  background:rgba(70,223,223,.08);
+  border-left:3px solid var(--cyan);
+  padding:15px;
+  border-radius:5px;
+  margin:15px 0;
+  color:#d5fafa;
+  font-size:12px;
+  line-height:1.9;
+}
+.warning{
+  background:rgba(255,184,77,.08);
+  border-left:3px solid #ffbd59;
+  padding:15px;
+  border-radius:5px;
+  font-size:12px;
+  color:#ffe2af;
+  line-height:1.9;
+}
+.example{
+  background:#0d1529;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:17px;
+  margin:12px 0;
+}
+.example .english{
+  color:#e3edff;
+  font-size:12px;
+  line-height:2;
+  font-style:italic;
+}
+.example .translation{
+  color:#a7c9ff;
+  font-size:11px;
+  margin-top:12px;
+  line-height:1.9;
+}
+.tag{
+  display:inline-block;
+  background:rgba(87,155,255,.14);
+  color:#9bc8ff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:10px;
+  margin:3px;
+}
+table{
+  border-collapse:collapse;
+  width:100%;
+  margin:15px 0;
+  font-size:11px;
+}
+th,td{
+  border:1px solid var(--border);
+  padding:12px;
+  text-align:left;
+  line-height:1.7;
+}
+th{background:#24375d;color:#d9eaff}
+td{color:#c7d2e5}
+
+.structure{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.structure-item{
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#18233e;
+}
+.structure-item strong{
+  color:var(--cyan);
+  font-size:13px;
+}
+.structure-item p{margin-bottom:0}
+
+.search-box{
+  width:100%;
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:10px;
+  color:white;
+  margin:15px 0;
+  outline:none;
+}
+.search-box:focus{border-color:var(--cyan)}
+
+.quiz-question{
+  background:#192540;
+  padding:20px;
+  border-radius:12px;
+  margin:18px 0;
+  border:1px solid var(--border);
+}
+.quiz-question h4{font-size:13px;line-height:1.8}
+.quiz-question p{font-size:12px;line-height:1.9;color:#b8c9e3}
+.option{
+  display:block;
+  background:#111a30;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:11px;
+  margin:8px 0;
+  cursor:pointer;
+  font-size:12px;
+  color:#dce6f8;
+}
+.option:hover{border-color:var(--blue)}
+.option input{margin-right:9px;accent-color:var(--blue)}
+.result{
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+  background:#162e3a;
+  font-size:13px;
+  line-height:1.9;
+  display:none;
+}
+footer{
+  border-top:1px solid var(--border);
+  padding:25px;
+  text-align:center;
+  color:#8291aa;
+  font-size:10px;
+  margin-top:40px;
+}
+
+@media(max-width:850px){
+  .sidebar{
+    position:fixed;
+    z-index:90;
+    left:-280px;
+    top:70px;
+    transition:.3s;
+    box-shadow:10px 0 30px #0005;
+  }
+  .sidebar.open{left:0}
+  .menu-btn{display:block}
+  main{padding:22px 4%}
+  .hero{padding:30px 22px}
+}
+@media(max-width:550px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .structure{grid-template-columns:1fr}
+  .hero h1{font-size:29px}
+  .header-right{font-size:10px}
+  .card{padding:17px}
+  table{font-size:10px}
+  th,td{padding:8px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ENGLISH<span>XI.</span></div>
+  <div class="header-right">
+    <span>GRADE 11 • SEMESTER 1</span>
+    <button class="menu-btn" onclick="toggleMenu()">☰ MENU</button>
+  </div>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <h4>MAIN MENU</h4>
+  <button class="nav-btn active" onclick="showPage('home',this)">🏠 Beranda</button>
+
+  <h4>READING MATERIAL</h4>
+  <button class="nav-btn" onclick="showPage('reading',this)">📖 Reading Comprehension</button>
+  <button class="nav-btn" onclick="showPage('explicit',this)">🔍 Explicit & Implicit</button>
+  <button class="nav-btn" onclick="showPage('narrative',this)">📚 Narrative Text</button>
+  <button class="nav-btn" onclick="showPage('shortstory',this)">📝 Short Story</button>
+  <button class="nav-btn" onclick="showPage('descriptive',this)">🏞️ Descriptive Text</button>
+  <button class="nav-btn" onclick="showPage('argumentative',this)">💡 Argumentative Text</button>
+
+  <h4>SUPPORTING MATERIAL</h4>
+  <button class="nav-btn" onclick="showPage('grammar',this)">🔤 Grammar & Vocabulary</button>
+  <button class="nav-btn" onclick="showPage('strategy',this)">🎯 Exam Strategies</button>
+  <button class="nav-btn" onclick="showPage('summary',this)">⚡ Quick Summary</button>
+
+  <h4>EXAM PRACTICE</h4>
+  <button class="nav-btn" onclick="showPage('quiz',this)">🏆 Interactive Quiz</button>
+
+  <div class="progress-box">
+    <strong>Learning Progress</strong>
+    <p id="progressText">0% completed</p>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+</aside>
+
+<main>
+
+<!-- HOME -->
+<section class="section active" id="home">
+  <div class="hero">
+    <div class="eyebrow">YOUR ENGLISH LEARNING SPACE</div>
+    <h1>MASTER YOUR<br>ENGLISH EXAMINATION.</h1>
+    <p>
+      Persiapkan ujian Bahasa Inggris kelas XI semester 1
+      dengan materi terstruktur, contoh bacaan, pembahasan,
+      dan latihan soal interaktif.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn" onclick="showPage('reading')">Mulai Belajar →</button>
+      <button class="btn secondary" onclick="showPage('quiz')">Kerjakan Quiz</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong>06</strong><small>Materi utama</small></div>
+    <div class="stat"><strong>10</strong><small>Latihan soal</small></div>
+    <div class="stat"><strong>04</strong><small>Jenis teks utama</small></div>
+    <div class="stat"><strong>100%</strong><small>Semangat belajar</small></div>
+  </div>
+
+  <div class="section-title">
+    <small>WELCOME STUDENTS</small>
+    <h2>Selamat Datang!</h2>
+    <p>
+      Website ini dirancang sebagai teman belajar untuk
+      memahami materi Bahasa Inggris sebelum ujian.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🎓 Target Pembelajaran</h3>
+    <ul>
+      <li>Mampu menganalisis berbagai jenis teks bahasa Inggris.</li>
+      <li>Mampu membedakan informasi tersurat dan tersirat.</li>
+      <li>Memahami struktur dan ciri kebahasaan teks.</li>
+      <li>Mampu menentukan ide pokok, tujuan, dan kesimpulan.</li>
+      <li>Mampu menjawab pertanyaan berdasarkan bacaan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💡 Tips Belajar</h3>
+    <p>
+      Pelajari materi secara berurutan, pahami contoh bacaan,
+      kemudian kerjakan latihan soal. Jangan hanya menghafalkan
+      jawaban, tetapi pahami alasan di balik setiap jawaban.
+    </p>
+  </div>
+</section>
+
+<!-- READING -->
+<section class="section" id="reading">
+  <div class="section-title">
+    <small>CHAPTER 01</small>
+    <h2>Reading Comprehension</h2>
+    <p>Memahami dan menganalisis isi sebuah bacaan.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Definition</h3>
+    <p>
+      Reading comprehension adalah kemampuan memahami,
+      menafsirkan, dan menganalisis informasi yang terdapat
+      dalam sebuah teks.
+    </p>
+    <p>Dalam ujian, kemampuan ini meliputi:</p>
+    <ul>
+      <li>Main Idea: ide pokok.</li>
+      <li>Supporting Details: informasi pendukung.</li>
+      <li>Explicit Information: informasi tersurat.</li>
+      <li>Implicit Information: informasi tersirat.</li>
+      <li>Purpose: tujuan penulis.</li>
+      <li>Reference: kata yang dirujuk.</li>
+      <li>Vocabulary: makna kosakata.</li>
+      <li>Conclusion: kesimpulan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>B. Main Idea</h3>
+    <p>
+      Main idea merupakan gagasan utama yang menjadi inti
+      pembahasan sebuah paragraf.
+    </p>
+    <div class="example">
+      <div class="english">
+        Reading books is beneficial for students.
+        It improves vocabulary, increases knowledge,
+        and develops critical thinking skills.
+      </div>
+      <div class="translation">
+        Ide pokok: Reading books is beneficial for students.
+        Membaca buku bermanfaat bagi siswa.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>C. Supporting Details</h3>
+    <p>
+      Supporting details merupakan informasi yang menjelaskan
+      atau mendukung ide pokok.
+    </p>
+    <ul>
+      <li>Improves vocabulary.</li>
+      <li>Increases knowledge.</li>
+      <li>Develops critical thinking skills.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>D. Purpose of the Text</h3>
+    <p>
+      Purpose adalah tujuan penulis membuat sebuah teks.
+      Contohnya:
+    </p>
+    <ul>
+      <li>To entertain: menghibur.</li>
+      <li>To describe: menggambarkan.</li>
+      <li>To persuade: membujuk atau meyakinkan.</li>
+      <li>To inform: memberikan informasi.</li>
+      <li>To explain: menjelaskan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>E. Teknik Membaca</h3>
+    <div class="structure">
+      <div class="structure-item">
+        <strong>SKIMMING</strong>
+        <p>Membaca cepat untuk mengetahui gambaran umum dan ide pokok.</p>
+      </div>
+      <div class="structure-item">
+        <strong>SCANNING</strong>
+        <p>Mencari informasi khusus seperti nama, tanggal, angka, dan tempat.</p>
+      </div>
+      <div class="structure-item">
+        <strong>CLOSE READING</strong>
+        <p>Membaca secara teliti untuk menganalisis isi dan makna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLICIT IMPLICIT -->
+<section class="section" id="explicit">
+  <div class="section-title">
+    <small>CHAPTER 02</small>
+    <h2>Explicit & Implicit Information</h2>
+    <p>Materi penting untuk menjawab soal pemahaman bacaan.</p>
+  </div>
+
+  <div class="card">
+    <h3>1. Explicit Information (Tersurat)</h3>
+    <p>
+      Informasi yang disampaikan secara langsung dan jelas
+      di dalam teks. Jawabannya dapat ditemukan dengan membaca
+      kalimat yang sesuai.
+    </p>
+    <div class="example">
+      <div class="english">
+        Rina went to the library at 8 a.m. yesterday.
+        She borrowed three English books.
+      </div>
+      <div class="translation">
+        Rina pergi ke perpustakaan pukul 08.00 kemarin.
+        Dia meminjam tiga buku bahasa Inggris.
+      </div>
+    </div>
+    <p><strong>Question:</strong> How many books did Rina borrow?</p>
+    <p><strong>Answer:</strong> Three books.</p>
+    <div class="highlight">
+      Jawaban tertulis langsung dalam teks.
+      Tidak perlu menebak atau membuat asumsi.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2. Implicit Information (Tersirat)</h3>
+    <p>
+      Informasi yang tidak disebutkan secara langsung,
+      tetapi dapat diketahui melalui petunjuk dan konteks bacaan.
+    </p>
+    <div class="example">
+      <div class="english">
+        It was raining heavily. Dika picked up his umbrella
+        and wore his raincoat before leaving the house.
+      </div>
+      <div class="translation">
+        Hujan turun dengan deras. Dika mengambil payung
+        dan memakai jas hujan sebelum meninggalkan rumah.
+      </div>
+    </div>
+    <p><strong>Question:</strong> Why did Dika take an umbrella?</p>
+    <p><strong>Answer:</strong> Because it was raining.</p>
+    <div class="highlight">
+      Kesimpulan didapatkan dari hubungan antara hujan
+      dan tindakan Dika mengambil payung.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3. Perbedaan Keduanya</h3>
+    <table>
+      <tr><th>Explicit</th><th>Implicit</th></tr>
+      <tr><td>Informasi tertulis langsung.</td><td>Informasi tidak tertulis langsung.</td></tr>
+      <tr><td>Mencari fakta.</td><td>Menarik kesimpulan.</td></tr>
+      <tr><td>Mudah ditemukan.</td><td>Membutuhkan analisis.</td></tr>
+      <tr><td>Berdasarkan kalimat.</td><td>Berdasarkan petunjuk dan konteks.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>4. Kata Kunci Soal</h3>
+    <table>
+      <tr><th>Question Keywords</th><th>Arti</th></tr>
+      <tr><td>According to the text</td><td>Menurut teks</td></tr>
+      <tr><td>What can we infer?</td><td>Apa yang dapat disimpulkan?</td></tr>
+      <tr><td>What is implied?</td><td>Apa yang tersirat?</td></tr>
+      <tr><td>What is mentioned?</td><td>Apa yang disebutkan?</td></tr>
+      <tr><td>What does it refer to?</td><td>Apa yang dirujuk?</td></tr>
+      <tr><td>What is the main idea?</td><td>Apa ide pokoknya?</td></tr>
+      <tr><td>What is the purpose?</td><td>Apa tujuannya?</td></tr>
+      <tr><td>Which statement is NOT true?</td><td>Pernyataan mana yang tidak benar?</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>5. Contoh Analisis</h3>
+    <div class="example">
+      <div class="english">
+        Sarah studied until midnight. The next morning,
+        she looked tired but smiled when she saw her
+        examination result.
+      </div>
+    </div>
+    <p><strong>Explicit:</strong> Sarah studied until midnight.</p>
+    <p><strong>Implicit:</strong> Sarah worked hard to prepare for her exam.</p>
+    <p><strong>Inference:</strong> She was probably satisfied with her result.</p>
+  </div>
+
+  <div class="warning">
+    PENTING: Jawaban informasi tersirat harus tetap mempunyai
+    bukti dari bacaan. Jangan membuat kesimpulan yang tidak
+    didukung oleh teks.
+  </div>
+</section>
+
+<!-- NARRATIVE -->
+<section class="section" id="narrative">
+  <div class="section-title">
+    <small>CHAPTER 03</small>
+    <h2>Narrative Text</h2>
+    <p>Mempelajari cerita, konflik, penyelesaian, dan pesan moral.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Definition</h3>
+    <p>
+      Narrative text adalah teks yang menceritakan rangkaian
+      peristiwa untuk menghibur pembaca dan terkadang memberikan
+      pesan moral.
+    </p>
+    <div class="highlight">
+      Social Function: To entertain the readers and sometimes
+      to teach moral values.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>B. Types of Narrative</h3>
+    <ul>
+      <li>Fable: cerita binatang.</li>
+      <li>Fairy Tale: dongeng.</li>
+      <li>Legend: legenda.</li>
+      <li>Myth: mitos.</li>
+      <li>Folktale: cerita rakyat.</li>
+      <li>Fantasy: cerita fantasi.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>C. Generic Structure</h3>
+    <div class="structure">
+      <div class="structure-item">
+        <strong>01. ORIENTATION</strong>
+        <p>Pengenalan tokoh, waktu, tempat, dan situasi awal.</p>
+      </div>
+      <div class="structure-item">
+        <strong>02. COMPLICATION</strong>
+        <p>Munculnya masalah atau konflik dalam cerita.</p>
+      </div>
+      <div class="structure-item">
+        <strong>03. RESOLUTION</strong>
+        <p>Penyelesaian masalah yang dialami tokoh.</p>
+      </div>
+      <div class="structure-item">
+        <strong>04. CODA</strong>
+        <p>Pesan moral atau penutup. Tidak selalu ada.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>D. Language Features</h3>
+    <ul>
+      <li>Simple Past Tense.</li>
+      <li>Action Verbs: ran, walked, helped, cried.</li>
+      <li>Adjectives: beautiful, brave, poor.</li>
+      <li>Time Connectives: once upon a time, then, finally.</li>
+      <li>Direct Speech: percakapan tokoh.</li>
+      <li>Specific Characters: tokoh cerita.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>E. Simple Past Tense</h3>
+    <p>Digunakan untuk menceritakan kejadian masa lalu.</p>
+    <div class="highlight">
+      Positive: S + V2 + O<br>
+      Negative: S + did not + V1<br>
+      Interrogative: Did + S + V1?
+    </div>
+    <p>Contoh:</p>
+    <ul>
+      <li>She visited her grandmother.</li>
+      <li>She did not visit her grandmother.</li>
+      <li>Did she visit her grandmother?</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>F. Example: The Lion and the Mouse</h3>
+    <div class="example">
+      <div class="english">
+        One day, a lion was sleeping peacefully in the forest.
+        A little mouse accidentally ran across his body and woke
+        him up.<br><br>
+        The lion caught the mouse. The mouse begged for mercy
+        and promised to help him someday. The lion laughed
+        but decided to release him.<br><br>
+        Several days later, the lion was trapped in a hunter's
+        net. The little mouse heard his roar and came to help.
+        It bit the ropes until the lion was free.<br><br>
+        The lion thanked the mouse and realized that even
+        a small creature could be very helpful.
+      </div>
+      <div class="translation">
+        Seekor singa sedang tidur di hutan. Seekor tikus
+        membangunkannya. Singa menangkapnya, tetapi akhirnya
+        melepaskannya. Beberapa hari kemudian singa terjebak
+        dalam jaring. Tikus datang dan menggigit tali jaring
+        hingga singa bebas.
+      </div>
+    </div>
+    <table>
+      <tr><th>Element</th><th>Analysis</th></tr>
+      <tr><td>Orientation</td><td>Lion and mouse in the forest.</td></tr>
+      <tr><td>Complication</td><td>The lion was trapped in a net.</td></tr>
+      <tr><td>Resolution</td><td>The mouse helped the lion.</td></tr>
+      <tr><td>Coda</td><td>Even small creatures can help others.</td></tr>
+      <tr><td>Moral Value</td><td>Never underestimate others.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>G. Common Questions</h3>
+    <ul>
+      <li>Who are the main characters?</li>
+      <li>Where did the story take place?</li>
+      <li>What was the main problem?</li>
+      <li>How was the problem solved?</li>
+      <li>What can we learn from the story?</li>
+      <li>What can we infer about the character?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SHORT STORY -->
+<section class="section" id="shortstory">
+  <div class="section-title">
+    <small>CHAPTER 04</small>
+    <h2>Short Story</h2>
+    <p>Memahami unsur intrinsik cerita pendek.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Definition</h3>
+    <p>
+      Short story adalah cerita fiksi yang relatif singkat,
+      berfokus pada konflik utama, dengan jumlah tokoh dan
+      peristiwa yang lebih terbatas dibandingkan novel.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>B. Elements of Short Story</h3>
+    <div class="structure">
+      <div class="structure-item"><strong>THEME</strong><p>Tema atau ide utama cerita.</p></div>
+      <div class="structure-item"><strong>CHARACTER</strong><p>Tokoh yang terlibat dalam cerita.</p></div>
+      <div class="structure-item"><strong>CHARACTERIZATION</strong><p>Sifat dan kepribadian tokoh.</p></div>
+      <div class="structure-item"><strong>SETTING</strong><p>Latar tempat, waktu, dan suasana.</p></div>
+      <div class="structure-item"><strong>PLOT</strong><p>Urutan peristiwa dalam cerita.</p></div>
+      <div class="structure-item"><strong>CONFLICT</strong><p>Permasalahan yang dihadapi tokoh.</p></div>
+      <div class="structure-item"><strong>POINT OF VIEW</strong><p>Sudut pandang penceritaan.</p></div>
+      <div class="structure-item"><strong>MORAL VALUE</strong><p>Pesan moral cerita.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>C. Types of Characters</h3>
+    <table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Main Character</td><td>Tokoh utama.</td></tr>
+      <tr><td>Supporting Character</td><td>Tokoh pendukung.</td></tr>
+      <tr><td>Protagonist</td><td>Tokoh pusat perjuangan cerita.</td></tr>
+      <tr><td>Antagonist</td><td>Tokoh atau kekuatan yang menentang protagonis.</td></tr>
+    </table>
+    <p>Contoh sifat tokoh:</p>
+    <p>
+      <span class="tag">Kind = Baik hati</span>
+      <span class="tag">Brave = Berani</span>
+      <span class="tag">Greedy = Serakah</span>
+      <span class="tag">Honest = Jujur</span>
+      <span class="tag">Selfish = Egois</span>
+      <span class="tag">Patient = Sabar</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>D. Types of Setting</h3>
+    <ul>
+      <li>Setting of Place: tempat kejadian.</li>
+      <li>Setting of Time: waktu kejadian.</li>
+      <li>Setting of Atmosphere: suasana cerita.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>E. Plot Structure</h3>
+    <div class="structure">
+      <div class="structure-item"><strong>EXPOSITION</strong><p>Pengenalan cerita.</p></div>
+      <div class="structure-item"><strong>RISING ACTION</strong><p>Konflik mulai berkembang.</p></div>
+      <div class="structure-item"><strong>CLIMAX</strong><p>Puncak konflik.</p></div>
+      <div class="structure-item"><strong>FALLING ACTION</strong><p>Konflik mulai menurun.</p></div>
+      <div class="structure-item"><strong>RESOLUTION</strong><p>Penyelesaian cerita.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>F. Types of Conflict</h3>
+    <p><strong>Internal Conflict:</strong> masalah dalam diri tokoh, seperti kebingungan atau pergulatan batin.</p>
+    <p><strong>External Conflict:</strong> masalah antara tokoh dengan orang lain, lingkungan, atau keadaan.</p>
+  </div>
+
+  <div class="card">
+    <h3>G. Point of View</h3>
+    <table>
+      <tr><th>Type</th><th>Explanation</th></tr>
+      <tr><td>First Person</td><td>Menggunakan I atau We sebagai narator.</td></tr>
+      <tr><td>Third Person Limited</td><td>Narator mengetahui pikiran satu tokoh secara terbatas.</td></tr>
+      <tr><td>Third Person Omniscient</td><td>Narator mengetahui pikiran banyak tokoh.</td></tr>
+      <tr><td>Third Person Objective</td><td>Narator hanya menceritakan tindakan yang dapat diamati.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>H. Example: The Honest Student</h3>
+    <div class="example">
+      <div class="english">
+        Lina was a hardworking student who always tried to
+        be honest. One morning, she found a wallet under her
+        classroom desk. Inside the wallet, there was some money
+        and an identity card.<br><br>
+        Her friend suggested that she keep the money.
+        However, Lina refused. She decided to bring the wallet
+        to her teacher.<br><br>
+        The teacher discovered that the wallet belonged to
+        another student. The owner thanked Lina for returning it.
+        Lina realized that doing the right thing was important.
+      </div>
+      <div class="translation">
+        Lina adalah siswa pekerja keras dan jujur. Suatu pagi
+        dia menemukan dompet di bawah meja kelas. Temannya
+        menyarankan agar uangnya disimpan, tetapi Lina menolak.
+        Dia menyerahkan dompet itu kepada guru hingga pemiliknya
+        berhasil ditemukan.
+      </div>
+    </div>
+    <table>
+      <tr><th>Element</th><th>Answer</th></tr>
+      <tr><td>Theme</td><td>Honesty</td></tr>
+      <tr><td>Main Character</td><td>Lina</td></tr>
+      <tr><td>Setting</td><td>Classroom, one morning</td></tr>
+      <tr><td>Conflict</td><td>She found a wallet containing money.</td></tr>
+      <tr><td>Resolution</td><td>She returned the wallet.</td></tr>
+      <tr><td>Point of View</td><td>Third Person</td></tr>
+      <tr><td>Moral Value</td><td>Always be honest.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- DESCRIPTIVE -->
+<section class="section" id="descriptive">
+  <div class="section-title">
+    <small>CHAPTER 05</small>
+    <h2>Descriptive Text</h2>
+    <p>Menggambarkan seseorang, tempat, benda, atau hewan.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Definition</h3>
+    <p>
+      Descriptive text adalah teks yang menjelaskan karakteristik
+      suatu objek secara terperinci agar pembaca dapat
+      membayangkan objek tersebut.
+    </p>
+    <div class="highlight">
+      Social Function: To describe a particular person,
+      place, animal, or thing.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>B. Generic Structure</h3>
+    <div class="structure">
+      <div class="structure-item">
+        <strong>IDENTIFICATION</strong>
+        <p>Memperkenalkan objek yang akan dideskripsikan.</p>
+      </div>
+      <div class="structure-item">
+        <strong>DESCRIPTION</strong>
+        <p>Menjelaskan ciri-ciri objek secara terperinci.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>C. Language Features</h3>
+    <ul>
+      <li>Simple Present Tense.</li>
+      <li>Specific Nouns.</li>
+      <li>Adjectives.</li>
+      <li>Linking Verbs: is, am, are.</li>
+      <li>Descriptive Phrases.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>D. Simple Present Tense</h3>
+    <div class="highlight">
+      Verbal: S + V1(s/es) + O<br>
+      Nominal: S + am/is/are + Complement
+    </div>
+    <p>Contoh:</p>
+    <ul>
+      <li>She has long hair.</li>
+      <li>My school is clean.</li>
+      <li>They are friendly.</li>
+      <li>The cat sleeps on the sofa.</li>
+    </ul>
+    <p>Penggunaan to be:</p>
+    <table>
+      <tr><th>Subject</th><th>To Be</th></tr>
+      <tr><td>I</td><td>Am</td></tr>
+      <tr><td>He, She, It</td><td>Is</td></tr>
+      <tr><td>You, We, They</td><td>Are</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>E. Important Adjectives</h3>
+    <table>
+      <tr><th>English</th><th>Indonesia</th></tr>
+      <tr><td>Beautiful</td><td>Indah</td></tr>
+      <tr><td>Attractive</td><td>Menarik</td></tr>
+      <tr><td>Huge</td><td>Sangat besar</td></tr>
+      <tr><td>Ancient</td><td>Kuno</td></tr>
+      <tr><td>Friendly</td><td>Ramah</td></tr>
+      <tr><td>Intelligent</td><td>Cerdas</td></tr>
+      <tr><td>Spacious</td><td>Luas</td></tr>
+      <tr><td>Comfortable</td><td>Nyaman</td></tr>
+      <tr><td>Crowded</td><td>Ramai</td></tr>
+      <tr><td>Peaceful</td><td>Damai</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>F. Example: My School</h3>
+    <div class="example">
+      <div class="english">
+        My school is a beautiful and comfortable place
+        where I study every day. It is located near the
+        main road in my town.<br><br>
+        My school has many classrooms, a library,
+        a laboratory, and a large sports field.
+        The classrooms are clean and spacious.
+        The teachers are friendly and helpful.<br><br>
+        I love my school because it provides a good
+        environment for learning.
+      </div>
+      <div class="translation">
+        Sekolah saya adalah tempat yang indah dan nyaman
+        untuk belajar. Sekolah tersebut memiliki banyak
+        ruang kelas, perpustakaan, laboratorium, dan lapangan
+        olahraga yang luas. Guru-gurunya ramah dan suka membantu.
+      </div>
+    </div>
+    <table>
+      <tr><th>Structure</th><th>Content</th></tr>
+      <tr><td>Identification</td><td>Introduction of my school.</td></tr>
+      <tr><td>Description</td><td>Facilities and characteristics.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>G. Common Questions</h3>
+    <ul>
+      <li>What is being described?</li>
+      <li>Where is the object located?</li>
+      <li>What does it look like?</li>
+      <li>What are its characteristics?</li>
+      <li>What is the purpose of the text?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ARGUMENTATIVE -->
+<section class="section" id="argumentative">
+  <div class="section-title">
+    <small>CHAPTER 06</small>
+    <h2>Argumentative Text</h2>
+    <p>Menyampaikan pendapat dengan alasan dan bukti.</p>
+  </div>
+
+  <div class="card">
+    <h3>A. Definition</h3>
+    <p>
+      Argumentative text adalah teks yang berisi pendapat penulis
+      tentang suatu masalah yang didukung alasan, fakta, bukti,
+      dan contoh untuk meyakinkan pembaca.
+    </p>
+    <div class="highlight">
+      Purpose: To persuade or convince readers by presenting
+      arguments and supporting evidence.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>B. Generic Structure</h3>
+    <div class="structure">
+      <div class="structure-item">
+        <strong>01. THESIS</strong>
+        <p>Pengenalan topik dan pendapat penulis.</p>
+      </div>
+      <div class="structure-item">
+        <strong>02. ARGUMENTS</strong>
+        <p>Alasan, fakta, bukti, dan contoh pendukung.</p>
+      </div>
+      <div class="structure-item">
+        <strong>03. COUNTERARGUMENT</strong>
+        <p>Pendapat yang berlawanan dan tanggapannya, jika ada.</p>
+      </div>
+      <div class="structure-item">
+        <strong>04. CONCLUSION</strong>
+        <p>Penegasan kembali pendapat dan kesimpulan.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>C. Opinion Expressions</h3>
+    <table>
+      <tr><th>Expression</th><th>Meaning</th></tr>
+      <tr><td>I think that...</td><td>Saya berpikir bahwa...</td></tr>
+      <tr><td>In my opinion...</td><td>Menurut pendapat saya...</td></tr>
+      <tr><td>I believe that...</td><td>Saya percaya bahwa...</td></tr>
+      <tr><td>From my point of view...</td><td>Dari sudut pandang saya...</td></tr>
+      <tr><td>I strongly agree...</td><td>Saya sangat setuju...</td></tr>
+      <tr><td>I disagree with...</td><td>Saya tidak setuju dengan...</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>D. Connectives / Linking Words</h3>
+    <table>
+      <tr><th>Word</th><th>Meaning</th></tr>
+      <tr><td>Firstly</td><td>Pertama</td></tr>
+      <tr><td>Secondly</td><td>Kedua</td></tr>
+      <tr><td>Furthermore</td><td>Selain itu</td></tr>
+      <tr><td>Moreover</td><td>Terlebih lagi</td></tr>
+      <tr><td>In addition</td><td>Sebagai tambahan</td></tr>
+      <tr><td>Because</td><td>Karena</td></tr>
+      <tr><td>Therefore</td><td>Oleh karena itu</td></tr>
+      <tr><td>However</td><td>Namun</td></tr>
+      <tr><td>Although</td><td>Meskipun</td></tr>
+      <tr><td>On the other hand</td><td>Di sisi lain</td></tr>
+      <tr><td>For example</td><td>Sebagai contoh</td></tr>
+      <tr><td>In conclusion</td><td>Kesimpulannya</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>E. Fact vs Opinion</h3>
+    <p><strong>Fact:</strong> Pernyataan yang dapat dibuktikan kebenarannya.</p>
+    <p><strong>Opinion:</strong> Pendapat atau pandangan seseorang.</p>
+    <table>
+      <tr><th>Fact</th><th>Opinion</th></tr>
+      <tr><td>Water freezes at 0°C under standard atmospheric pressure.</td><td>Reading is the best hobby.</td></tr>
+      <tr><td>The Earth orbits the Sun.</td><td>Science is the most interesting subject.</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>F. Example: The Importance of Reading Books</h3>
+    <div class="example">
+      <div class="english">
+        Reading books is one of the most beneficial activities
+        for students. I believe that students should develop
+        a regular reading habit.<br><br>
+        Firstly, reading improves vocabulary. Secondly,
+        reading increases knowledge. Furthermore, reading
+        develops critical thinking skills.<br><br>
+        In conclusion, reading books is an important habit
+        that helps students improve their language skills,
+        knowledge, and critical thinking abilities.
+      </div>
+      <div class="translation">
+        Membaca buku merupakan salah satu kegiatan yang
+        bermanfaat bagi siswa. Membaca meningkatkan kosakata,
+        menambah pengetahuan, dan mengembangkan kemampuan
+        berpikir kritis.
+      </div>
+    </div>
+    <table>
+      <tr><th>Structure</th><th>Content</th></tr>
+      <tr><td>Thesis</td><td>Reading books is beneficial.</td></tr>
+      <tr><td>Arguments</td><td>Vocabulary, knowledge, critical thinking.</td></tr>
+      <tr><td>Conclusion</td><td>Reading is an important habit.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- GRAMMAR -->
+<section class="section" id="grammar">
+  <div class="section-title">
+    <small>SUPPORTING MATERIAL</small>
+    <h2>Grammar & Vocabulary</h2>
+    <p>Tata bahasa dan kosakata penting untuk memahami bacaan.</p>
+  </div>
+
+  <div class="card">
+    <h3>1. Simple Present Tense</h3>
+    <p>Untuk kebiasaan, fakta, dan keadaan umum.</p>
+    <div class="highlight">S + V1(s/es) + O</div>
+    <p>Example: She studies English every day.</p>
+  </div>
+
+  <div class="card">
+    <h3>2. Simple Past Tense</h3>
+    <p>Untuk kejadian di masa lalu.</p>
+    <div class="highlight">S + V2 + O</div>
+    <p>Example: They visited the museum yesterday.</p>
+  </div>
+
+  <div class="card">
+    <h3>3. Pronouns</h3>
+    <table>
+      <tr><th>Subject</th><th>Object</th><th>Possessive</th></tr>
+      <tr><td>I</td><td>Me</td><td>My</td></tr>
+      <tr><td>You</td><td>You</td><td>Your</td></tr>
+      <tr><td>He</td><td>Him</td><td>His</td></tr>
+      <tr><td>She</td><td>Her</td><td>Her</td></tr>
+      <tr><td>It</td><td>It</td><td>Its</td></tr>
+      <tr><td>We</td><td>Us</td><td>Our</td></tr>
+      <tr><td>They</td><td>Them</td><td>Their</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>4. Modal Verbs</h3>
+    <table>
+      <tr><th>Modal</th><th>Meaning</th></tr>
+      <tr><td>Can</td><td>Bisa</td></tr>
+      <tr><td>Could</td><td>Dapat / bisa</td></tr>
+      <tr><td>Must</td><td>Harus</td></tr>
+      <tr><td>Should</td><td>Sebaiknya</td></tr>
+      <tr><td>May</td><td>Boleh / mungkin</td></tr>
+      <tr><td>Might</td><td>Mungkin</td></tr>
+      <tr><td>Will</td><td>Akan</td></tr>
+      <tr><td>Would</td><td>Akan / bentuk sopan</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>5. Useful Vocabulary</h3>
+    <input class="search-box" id="vocabSearch" placeholder="Cari kosakata..." oninput="searchVocab()">
+    <table id="vocabTable">
+      <tr><th>English</th><th>Indonesia</th></tr>
+      <tr><td>Although</td><td>Meskipun</td></tr>
+      <tr><td>Therefore</td><td>Oleh karena itu</td></tr>
+      <tr><td>However</td><td>Namun</td></tr>
+      <tr><td>Suggest</td><td>Menyarankan</td></tr>
+      <tr><td>Realize</td><td>Menyadari</td></tr>
+      <tr><td>Improve</td><td>Meningkatkan</td></tr>
+      <tr><td>Achieve</td><td>Mencapai</td></tr>
+      <tr><td>Determine</td><td>Menentukan</td></tr>
+      <tr><td>Describe</td><td>Menggambarkan</td></tr>
+      <tr><td>Evidence</td><td>Bukti</td></tr>
+      <tr><td>Reliable</td><td>Dapat dipercaya</td></tr>
+      <tr><td>Despite</td><td>Meskipun</td></tr>
+      <tr><td>Precious</td><td>Berharga</td></tr>
+      <tr><td>Exhausted</td><td>Sangat lelah</td></tr>
+      <tr><td>Generous</td><td>Dermawan</td></tr>
+      <tr><td>Ancient</td><td>Kuno</td></tr>
+      <tr><td>Beneficial</td><td>Bermanfaat</td></tr>
+      <tr><td>Environment</td><td>Lingkungan</td></tr>
+      <tr><td>Knowledge</td><td>Pengetahuan</td></tr>
+      <tr><td>Nevertheless</td><td>Walaupun demikian</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section class="section" id="strategy">
+  <div class="section-title">
+    <small>EXAM PREPARATION</small>
+    <h2>Exam Strategies</h2>
+    <p>Strategi menjawab pertanyaan dengan tepat dan efisien.</p>
+  </div>
+
+  <div class="card">
+    <h3>1. Jika ditanya Main Idea</h3>
+    <p>
+      Cari gagasan yang paling mewakili seluruh paragraf.
+      Jangan memilih detail yang hanya menjelaskan sebagian isi.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>2. Jika ditanya Explicit Information</h3>
+    <p>
+      Cari kata kunci dalam pertanyaan, lalu temukan informasi
+      yang sama atau memiliki makna setara dalam teks.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>3. Jika ditanya Implicit Information</h3>
+    <p>
+      Hubungkan beberapa petunjuk. Perhatikan tindakan tokoh,
+      situasi, alasan, dan akibat dari suatu peristiwa.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>4. Jika ditanya Reference</h3>
+    <p>
+      Cari kata ganti seperti he, she, it, they, this, that,
+      these, dan those. Periksa kata benda yang dibicarakan
+      sebelumnya.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>5. Jika ditanya Vocabulary</h3>
+    <p>
+      Pahami konteks kalimat sebelum menentukan arti sebuah kata.
+      Perhatikan kata sebelum dan sesudahnya.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>6. Jika Ada Kata NOT / EXCEPT</h3>
+    <div class="warning">
+      Berhati-hatilah dengan kata NOT TRUE, NOT MENTIONED,
+      dan EXCEPT. Pertanyaan tersebut meminta informasi
+      yang salah atau tidak disebutkan.
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="section" id="summary">
+  <div class="section-title">
+    <small>FINAL REVIEW</small>
+    <h2>Quick Summary</h2>
+    <p>Materi yang harus diingat sebelum ujian dimulai.</p>
+  </div>
+
+  <div class="card">
+    <h3>READING COMPREHENSION</h3>
+    <p>Explicit = tersurat. Implicit = tersirat.</p>
+    <p>Main Idea = ide pokok.</p>
+    <p>Supporting Details = informasi pendukung.</p>
+    <p>Conclusion = kesimpulan.</p>
+    <p>Reference = kata yang dirujuk.</p>
+  </div>
+
+  <div class="card">
+    <h3>NARRATIVE TEXT</h3>
+    <p>Purpose: To entertain.</p>
+    <p>Structure: Orientation, Complication, Resolution, Coda.</p>
+    <p>Tense: Simple Past Tense.</p>
+    <p>Moral Value: pesan moral.</p>
+  </div>
+
+  <div class="card">
+    <h3>SHORT STORY</h3>
+    <p>Theme, Character, Characterization, Setting, Plot, Conflict, Point of View, Moral Value.</p>
+  </div>
+
+  <div class="card">
+    <h3>DESCRIPTIVE TEXT</h3>
+    <p>Purpose: To describe.</p>
+    <p>Structure: Identification, Description.</p>
+    <p>Tense: Simple Present Tense.</p>
+    <p>Language: Adjectives, Specific Nouns.</p>
+  </div>
+
+  <div class="card">
+    <h3>ARGUMENTATIVE TEXT</h3>
+    <p>Purpose: To persuade or convince.</p>
+    <p>Structure: Thesis, Arguments, Conclusion.</p>
+    <p>Language: Opinion, Facts, Evidence, Connectives.</p>
+  </div>
+
+  <div class="highlight">
+    Kunci keberhasilan ujian Bahasa Inggris adalah memahami
+    isi bacaan, menemukan bukti, dan menarik kesimpulan
+    berdasarkan teks.
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" id="quiz">
+  <div class="section-title">
+    <small>TEST YOUR KNOWLEDGE</small>
+    <h2>Interactive Examination</h2>
+    <p>Kerjakan soal berikut untuk menguji pemahamanmu.</p>
+  </div>
+
+  <div class="card">
+    <h3>Petunjuk Pengerjaan</h3>
+    <p>
+      Pilih satu jawaban yang paling tepat pada setiap soal.
+      Setelah selesai, tekan tombol periksa jawaban untuk
+      melihat nilai dan pembahasan.
+    </p>
+    <p>Jumlah soal: 10 | Skor maksimal: 100</p>
+  </div>
+
+  <div id="quizContainer"></div>
+
+  <button class="btn" onclick="checkQuiz()">PERIKSA JAWABAN</button>
+  <button class="btn secondary" onclick="resetQuiz()">ULANGI QUIZ</button>
+
+  <div class="result" id="quizResult"></div>
+</section>
+
+<footer>
+  ENGLISH EXAM PREPARATION • GRADE XI<br>
+  Learn Today, Lead Tomorrow.<br><br>
+  Study Smart • Stay Consistent • Believe in Yourself
+</footer>
+
+</main>
+</div>
+
+<script>
+const pages = [
+  'home','reading','explicit','narrative','shortstory',
+  'descriptive','argumentative','grammar','strategy',
+  'summary','quiz'
+];
+
+let visited = new Set(['home']);
+
+function showPage(id,btn){
+  document.querySelectorAll('.section').forEach(section=>{
+    section.classList.remove('active');
+  });
+
+  const page=document.getElementById(id);
+  if(!page)return;
+
+  page.classList.add('active');
+  visited.add(id);
+
+  document.querySelectorAll('.nav-btn').forEach(b=>{
+    b.classList.remove('active');
+  });
+
+  if(btn)btn.classList.add('active');
+  else{
+    document.querySelectorAll('.nav-btn').forEach(b=>{
+      if(b.getAttribute('onclick')?.includes("'"+id+"'")){
+        b.classList.add('active');
+      }
+    });
+  }
+
+  updateProgress();
+  document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleMenu(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+function updateProgress(){
+  const total=pages.length;
+  const percent=Math.round(visited.size/total*100);
+  document.getElementById('progressText').textContent=percent+'% completed';
+  document.getElementById('progressFill').style.width=percent+'%';
+}
+
+function searchVocab(){
+  const input=document.getElementById('vocabSearch').value.toLowerCase();
+  const rows=document.querySelectorAll('#vocabTable tr');
+
+  rows.forEach((row,index)=>{
+    if(index===0)return;
+    row.style.display=row.innerText.toLowerCase().includes(input)?'':'none';
+  });
+}
+
+const questions=[
+{
+ text:'Rina went to the library yesterday. Where did Rina go?',
+ options:['Hospital','Library','Market','School'],
+ answer:1,
+ explain:'Jawaban Library karena tertulis secara langsung dalam teks. Ini merupakan explicit information.'
+},
+{
+ text:'It was raining heavily. Dika took an umbrella. Why did he take it?',
+ options:['Because it was raining','Because it was sunny','Because he was playing','Because he was sleeping'],
+ answer:0,
+ explain:'Hujan dan tindakan mengambil payung menjadi petunjuk bahwa Dika mengambilnya karena hujan. Ini implicit information.'
+},
+{
+ text:'What is the main purpose of narrative text?',
+ options:['To describe an object','To entertain readers','To give instructions','To report an event'],
+ answer:1,
+ explain:'Narrative text bertujuan utama untuk menghibur pembaca.'
+},
+{
+ text:'Which is the correct structure of narrative text?',
+ options:['Identification and Description','Thesis and Arguments','Orientation, Complication, Resolution','Goal and Materials'],
+ answer:2,
+ explain:'Struktur narrative text umumnya Orientation, Complication, Resolution, dan dapat diikuti Coda.'
+},
+{
+ text:'Which tense is commonly used in narrative text?',
+ options:['Simple Present','Simple Past','Present Continuous','Future Tense'],
+ answer:1,
+ explain:'Narrative text umumnya menceritakan kejadian masa lalu menggunakan Simple Past Tense.'
+},
+{
+ text:'What is the main purpose of descriptive text?',
+ options:['To describe something','To persuade readers','To tell a conflict','To give instructions'],
+ answer:0,
+ explain:'Descriptive text bertujuan menggambarkan orang, tempat, benda, atau hewan.'
+},
+{
+ text:'What is the generic structure of descriptive text?',
+ options:['Orientation and Resolution','Thesis and Arguments','Identification and Description','Complication and Coda'],
+ answer:2,
+ explain:'Descriptive text terdiri dari Identification dan Description.'
+},
+{
+ text:'Which statement is an opinion?',
+ options:[
+  'The Earth orbits the Sun.',
+  'Water freezes at 0°C under standard atmospheric pressure.',
+  'Reading is the best hobby.',
+  'The Sun is a star.'
+ ],
+ answer:2,
+ explain:'Reading is the best hobby merupakan penilaian subjektif sehingga termasuk opini.'
+},
+{
+ text:'What is the purpose of argumentative text?',
+ options:['To entertain','To describe a person','To persuade or convince readers','To tell a fairy tale'],
+ answer:2,
+ explain:'Argumentative text menyampaikan argumen untuk meyakinkan pembaca.'
+},
+{
+ text:'What does the word "it" refer to in: "Anna has a garden. She waters it every morning."?',
+ options:['Anna','Morning','Garden','Water'],
+ answer:2,
+ explain:'It merujuk pada garden, yaitu benda yang dibicarakan sebelumnya.'
+}
+];
+
+const container=document.getElementById('quizContainer');
+
+function renderQuiz(){
+  container.innerHTML='';
+
+  questions.forEach((q,i)=>{
+    const div=document.createElement('div');
+    div.className='quiz-question';
+
+    let html='<h4>QUESTION '+(i+1)+'</h4>';
+    html+='<p>'+q.text+'</p>';
+
+    q.options.forEach((option,j)=>{
+      html+=`
+        <label class="option">
+          <input type="radio" name="q${i}" value="${j}">
+          ${String.fromCharCode(65+j)}. ${option}
+        </label>
+      `;
+    });
+
+    div.innerHTML=html;
+    container.appendChild(div);
+  });
+}
+
+function checkQuiz(){
+  let score=0;
+  let answered=0;
+  let feedback='';
+
+  questions.forEach((q,i)=>{
+    const selected=document.querySelector(`input[name="q${i}"]:checked`);
+
+    if(selected){
+      answered++;
+      if(Number(selected.value)===q.answer)score+=10;
+    }
+  });
+
+  if(answered<questions.length){
+    alert('Silakan jawab semua soal terlebih dahulu!');
+    return;
+  }
+
+  feedback='<h3>Hasil Ujian Kamu</h3>';
+  feedback+=`<h2>${score}/100</h2>`;
+  feedback+=`<p>Jawaban benar: ${score/10} dari 10 soal.</p>`;
+
+  if(score===100){
+    feedback+='<p>Excellent! Semua jawaban benar. Pertahankan!</p>';
+  }else if(score>=80){
+    feedback+='<p>Great job! Pemahamanmu sudah sangat baik.</p>';
+  }else if(score>=60){
+    feedback+='<p>Good! Pelajari kembali beberapa materi yang belum dikuasai.</p>';
+  }else{
+    feedback+='<p>Tetap semangat! Baca kembali materi dan coba lagi.</p>';
+  }
+
+  feedback+='<hr><h3>Pembahasan Jawaban</h3>';
+
+  questions.forEach((q,i)=>{
+    const selected=document.querySelector(`input[name="q${i}"]:checked`);
+    const correct=Number(selected.value)===q.answer;
+
+    feedback+=`
+      <p>
+        <strong>${i+1}. ${correct?'✓ Benar':'✗ Belum tepat'}</strong><br>
+        Jawaban: ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}<br>
+        ${q.explain}
+      </p>
+    `;
+  });
+
+  const result=document.getElementById('quizResult');
+  result.innerHTML=feedback;
+  result.style.display='block';
+  result.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function resetQuiz(){
+  renderQuiz();
+  const result=document.getElementById('quizResult');
+  result.style.display='none';
+  result.innerHTML='';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+renderQuiz();
+updateProgress();
+</script>
+
+</body>
+</html>
